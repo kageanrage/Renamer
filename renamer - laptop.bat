@@ -1,1 +1,1 @@
-@"C:\Program Files\Python35\python.exe" "C:\Users\Admin\Google Drive\KP hobbies\Programming\Python\MyPythonScripts\Renamer\renamer.py" "C:\Users\Admin\Google Drive\KP hobbies\Programming\Python\MyPythonScripts\Renamer\test" %*
+@"C:\Program Files\Python35\python.exe" "C:\KP Python\Renamer\renamer.py" "C:\KP Python\Renamer\test" %*
