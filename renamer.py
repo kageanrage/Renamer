@@ -1,8 +1,14 @@
 #! python3
-# Renamer.py - renames basenames of files to Date Modified.
-# TO DO: currently takes directory from command line, could make it default to a directory, or show an error message
-# TO DO: refactor
+# Renamer.py - renames basenames of files in a specified directory to Date Modified.
 
+# TO DO:
+# refactor
+# create GUI with Tkinter
+# Allow user to input directory
+# button to 'Scan'
+# visually display list of files
+# button to 'Rename'
+# visually display renamed files
 
 
 import os, datetime, sys
@@ -31,3 +37,7 @@ for filename in os.listdir(os.getcwd()):
         # print('New file name:',new_name)
 
         os.rename(original_filename_incl_path, new_name_incl_path)
+
+
+
+
