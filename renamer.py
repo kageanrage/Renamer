@@ -23,8 +23,15 @@ def get_stringname(fname):
     for char in shorter_dt_string:      # for removal of colon characters
         if char != ':':                 # for removal of colon characters
             amended_dt_string += char   # for removal of colon characters
+    return amended_dt_string
 
-directory = str(sys.argv[1])  # takes the desired directory from the command line argument, passed by the batch file
+
+if len(sys.argv) > 1:
+    directory = str(sys.argv[1])  # takes the desired directory from the command line argument, passed by the batch file
+else:
+    directory = r"C:\Github local repos\Renamer\test"
+
+# print('len of sys.argv is {}'.format(len(sys.argv)))   # DEBUG SYS.ARGV
 
 os.chdir(directory) # change cwd to the desired directory
 abspath = os.path.abspath('.')  # define abspath
@@ -36,7 +43,8 @@ for filename in os.listdir(os.getcwd()):
         original_filename_incl_path = os.path.join(abspath, original_name)  # original name incl path
         new_name = get_stringname(filename) + ext                  # define new name
         new_name_incl_path = os.path.join(abspath, new_name)    # new name incl path
-        os.rename(original_filename_incl_path, new_name_incl_path)
+        os.rename(original_filename_incl_path, new_name_incl_path)    # DISABLE FOR TESTING
+        print('Renaming {} to {}'.format(original_filename_incl_path, new_name_incl_path))
 
 
 
