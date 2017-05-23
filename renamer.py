@@ -46,11 +46,10 @@ abspath = os.path.abspath('.')  # define abspath
 for filename in os.listdir(os.getcwd()):
     original_basename, ext = os.path.splitext(filename) # isolate basename and extensions
     if ext != '.bat':
-        original_name = original_basename + ext             # define original name - is this redundant though, should I just say 'filename' ?
-        original_filename_incl_path = os.path.join(abspath, original_name)  # original name incl path
+        original_filename_incl_path = os.path.join(abspath, filename)  # original name incl path
         new_name = get_stringname(filename) + ext                  # define new name
         new_name_incl_path = os.path.join(abspath, new_name)    # new name incl path
-        os.rename(original_filename_incl_path, new_name_incl_path)    # DISABLE FOR TESTING
+        # os.rename(original_filename_incl_path, new_name_incl_path)    # DISABLE FOR TESTING
         print('Renaming {} to {}'.format(original_filename_incl_path, new_name_incl_path))
 
 
