@@ -2,7 +2,6 @@
 # Renamer.py - renames basenames of files in a specified directory to Date Modified.
 
 # TO DO:
-# refactor
 # create GUI with Tkinter
 # Allow user to input directory
 # button to 'Scan'
@@ -12,6 +11,8 @@
 
 
 import os, datetime, sys
+
+Test_mode = False
 
 
 def set_directory():
@@ -49,8 +50,6 @@ for filename in os.listdir(os.getcwd()):
         original_filename_incl_path = os.path.join(abspath, filename)  # original name incl path
         new_name = get_stringname(filename) + ext                  # define new name
         new_name_incl_path = os.path.join(abspath, new_name)    # new name incl path
-        # os.rename(original_filename_incl_path, new_name_incl_path)    # DISABLE FOR TESTING
+        if not Test_mode:
+            os.rename(original_filename_incl_path, new_name_incl_path)    # DISABLE FOR TESTING
         print('Renaming {} to {}'.format(original_filename_incl_path, new_name_incl_path))
-
-
-
