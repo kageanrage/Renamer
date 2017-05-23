@@ -14,6 +14,19 @@
 import os, datetime, sys
 
 
+def set_directory():
+    if len(sys.argv) > 1:
+        dir = str(sys.argv[1])  # takes the desired directory from the command line argument, passed by the batch file
+    else:
+        if os.path.exists(r"C:\Program Files\StableBit\DrivePool"):
+            print("Kev's Home PC detected, setting default test directory accordingly")
+            dir = r"C:\Github local repos\Renamer\test"   # note this this the hardcoded directory for when working on Home PC
+        else:
+            print("This isn't Kev's Home PC, must be laptop, so setting test default directory accordingly")
+            dir = r"C:\KP Python\Renamer\test"
+    return dir
+
+
 def get_stringname(fname):
     modified_time = os.path.getmtime(fname)  # get raw time modified
     modified_date_time = datetime.datetime.fromtimestamp(modified_time) # convert time modified to something readable
@@ -26,13 +39,7 @@ def get_stringname(fname):
     return amended_dt_string
 
 
-if len(sys.argv) > 1:
-    directory = str(sys.argv[1])  # takes the desired directory from the command line argument, passed by the batch file
-else:
-    directory = r"C:\Github local repos\Renamer\test"
-
-# print('len of sys.argv is {}'.format(len(sys.argv)))   # DEBUG SYS.ARGV
-
+directory = set_directory()
 os.chdir(directory) # change cwd to the desired directory
 abspath = os.path.abspath('.')  # define abspath
 
