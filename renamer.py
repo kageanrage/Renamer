@@ -53,3 +53,8 @@ for filename in os.listdir(os.getcwd()):
         if not Test_mode:
             os.rename(original_filename_incl_path, new_name_incl_path)    # DISABLE FOR TESTING
         print('Renaming {} to {}'.format(original_filename_incl_path, new_name_incl_path))
+
+q = input('Press Q to quit\n')
+q = q.upper()
+if q == 'Q':
+    sys.exit()
